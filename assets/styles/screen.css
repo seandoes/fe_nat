@@ -1,0 +1,433 @@
+/* ---------------------------------------------------------------------
+ Base
+--------------------------------------------------------------------- */
+body {
+    font-family: "Helvetica", Arial, sans-serif;
+    font-size: 12px;
+    background-color: #00527a;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.clear-icon {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* ---------------------------------------------------------------------
+ Site
+--------------------------------------------------------------------- */
+.site {
+    width: 1000px;
+    margin: auto;
+}
+
+.site-hd {
+    padding: 20px;
+}
+
+.site-bd {
+    padding: 18px;
+    padding-bottom: 0;
+    background-color: #ffffff;
+}
+
+.site-ft {
+    padding: 18px;
+    background-color: #2c2c2c;
+}
+
+.col {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.primary-content {
+    width: 66.66%;
+}
+
+.secondary-content {
+    width: 31.33%;
+    float: right;
+}
+
+/* ---------------------------------------------------------------------
+ nav
+--------------------------------------------------------------------- */
+.site-nav {
+    background: linear-gradient(#fefefe, #d0d0d0);
+    border-left: #bdbdbd solid 1px;
+    border-right: #bdbdbd solid 1px;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.site-nav li {
+    display: inline-table;
+    width: 16.6%;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1px solid #bdbdbd;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.site-nav li:hover {
+    background:rgba(0,0,0,0.1)
+}
+
+.site-nav li + li {
+    margin-left: -2.5px;
+}
+
+.site-nav a {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    color: #606163;
+    font-weight: bold;
+    text-shadow: 1px 1px #ffffff;
+}
+
+/*I think I'd rather use :target pseudoselector here but only >=IE9 support*/
+.site-nav .active {
+    background-color: #ffffff;
+    border: 1px solid #bdbdbd;
+    border-bottom-color: #ffffff;
+    color: black;
+    /*Below is me trying to get the white overflow but it took the active nav item out of the flow. Not sure what's the right way to do this*/
+/*  position: absolute; 
+    top: -10px; 
+    height: 50px;*/
+}
+/* ---------------------------------------------------------------------
+ hList
+--------------------------------------------------------------------- */
+.hList {
+    font-size: 0;
+}
+
+.hList.light * {
+    color: #ffffff;
+}
+
+.hList.medium * {
+    color: #969696;
+}
+
+.hList.dark * {
+    color: #282b2e;
+}
+
+.hList > * {
+    display: inline-block;
+    position: relative;
+    font-size: 12px;
+}
+
+.hList > * + * {
+    margin-left: 24px;
+}
+
+.hList.smallSpace > * + * {
+    margin-left: 6px;
+}
+
+.hList.light > * + *:before {
+    content: "";
+    height: 14px;
+    width: 1px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    /*SASS would help DRY this up so I'm not repeating these hexes anywhere*/
+    background-color: #ffffff;
+}
+
+.hList.medium > * + *:before {
+    content: "";
+    height: 14px;
+    width: 1px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    background-color: #969696;
+}
+
+.hList.dark > * + *:before {
+    content: "";
+    height: 14px;
+    width: 1px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    background-color: #282b2e;
+}
+
+/* ---------------------------------------------------------------------
+ Carousel
+--------------------------------------------------------------------- */
+.carousel-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.carousel-item img {
+    width: 100%;
+}
+
+.carousel-button-left,
+.carousel-button-right {
+    position: absolute;
+    top: 44%;
+    width: 6%;
+}
+
+.carousel-button-right {
+    right: 0;
+}
+
+.carousel-item_isInactive {
+    position: absolute;
+    left: -9999px;
+    line-height: 0;
+}
+
+.carousel-item_isActive {
+    position: static;
+    left: 0;
+}
+
+.carousel-pips {
+    position: absolute;
+    bottom: 20px;
+    width: 10%;
+    left: 45%;
+}
+
+.carousel-pips > p {
+    display: inline-block;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+}
+
+.carousel-pips > p + p {
+    margin-left: 10.5px;
+}
+
+.carousel-pip_isActive {
+    background-color: #0084d9;
+}
+
+.carousel-pip_isInactive {
+    background-color: #ffffff;
+}
+
+/* ---------------------------------------------------------------------
+ Form
+--------------------------------------------------------------------- */
+.form-body {
+    background-color: #dbdbdb;
+    height: 227px;
+    position: relative;
+    vertical-align: top;
+}
+
+.form-wrap {
+    margin: 10px;
+}
+
+.form-wrap > * ,
+.select-wrap > * {
+    margin-bottom: 10px;
+}
+
+.title-wrap {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #969696;
+}
+
+.envelope-icon {
+    height: 10px;
+}
+
+input.email-box {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 5px;
+    /*This should maybe be moved to a universal selector but for now this is the only spot I was habing the issue*/
+    box-sizing: border-box;
+}
+
+.select-wrap {
+    background-color: #cac9c9;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+input.button {
+    border: none;
+    outline: none;
+    width: 70px;
+    height: 25px;
+    background-color: #0084d9;
+    color: #ffffff;
+    float: right;
+}
+
+.privacy-wrap {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    /*not super DRY since I just did this for .title-wrap, but that was a bottom border*/
+    border-top: 1px solid #969696;
+    background-color: #cac9c9;
+}
+
+/* ---------------------------------------------------------------------
+ Banner
+--------------------------------------------------------------------- */
+.banner {
+    position: relative;
+    margin-bottom: 20px;
+}
+.banner .icon {
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 11px;
+
+}
+.banner h2 {
+    display: inline-block;
+    background: #0084d9;
+    padding: 10px 20px 10px 30px;
+    margin-left: -30px;
+    margin-top: 0;
+    position: relative;
+    width: 103%;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.banner .wrap {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-top: 10px solid #0084d9;
+    box-shadow: 1px -4px 4px grey;
+    z-index: -1;
+    top: 103%;
+    left: 0;
+    position: absolute;
+}
+
+/* ---------------------------------------------------------------------
+ Video
+--------------------------------------------------------------------- */
+.video-wrap {
+    /*There's probably a better way to handle the margin at the breakpoint*/
+    width: 102%;
+}
+
+.video-box {
+    display: inline-block;
+    position: relative;
+    width: 225px;
+    height: 170px;
+    /*These should be 20px but there's got to be a border or padding somewhere and i just can't find it.
+    Please don't judge too harshly! */
+    margin-right: 17px;
+    margin-bottom: 17px;
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-box > p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 12px;
+    background:rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+img.play-button {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 20%;
+}
+
+/* ---------------------------------------------------------------------
+ Header
+--------------------------------------------------------------------- */
+header {
+    position: relative;
+    height: 80px;
+    margin-bottom: 30px;
+
+}
+
+header > * {
+    position: absolute;
+    bottom: 0;
+}
+
+header > .my-section{
+    right: 0;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------------------------
+ Footer
+--------------------------------------------------------------------- */
+.footer {
+    color: #ffffff;
+}
+
+.footer a {
+    color: #ffffff;
+}
+
+.footer .hList.light {
+    margin-bottom: 10px;
+}
+
+.footer .secondary-content {
+    text-align: right;
+}
